@@ -1,6 +1,6 @@
-# Keycloak Custom Theme Setup with Docker
+# Keycloak Neumorphic Theme Setup with Docker
 
-This repository contains a complete setup for Keycloak with a custom login theme that allows you to upload your own images (logo or background) without rebuilding the Docker image.
+This repository contains a complete setup for Keycloak with a beautiful neumorphic (soft UI) login theme that provides a modern, elegant interface with soft shadows and depth effects.
 
 ## 📁 Project Structure
 
@@ -47,26 +47,30 @@ docker-compose logs -f keycloak
 - **Username**: `admin`
 - **Password**: `admin123`
 
-## 🎨 Customizing Your Theme
+## 🎨 Theme Features
 
-### Adding Your Custom Image
+### Neumorphic Design Elements
 
-1. **Replace the placeholder image**:
-   ```bash
-   # Copy your image to the theme directory
-   cp your-logo.png my-theme/login/resources/img/custom-image.png
+- **Soft Shadows**: Beautiful inset and outset shadow effects
+- **Dark Color Scheme**: Professional dark theme with cyan accents
+- **Animated Toggle**: Smooth "Remember Me" toggle animation
+- **Rounded Corners**: Modern 32px border radius for inputs and buttons
+- **Gradient Effects**: Subtle gradients for depth and dimension
+
+### Customization Options
+
+1. **Color Variables**: Modify CSS custom properties in `styles.css`:
+   ```css
+   :root {
+     --textColor: #f6f5f7;      /* Main text color */
+     --textOffColor: #7c858d;   /* Secondary text */
+     --baseColor: #23333f;      /* Background color */
+     --secColor: #11f7e2;       /* Accent color (cyan) */
+   }
    ```
 
-2. **Restart the container** (if using volume mounting):
-   ```bash
-   docker-compose restart keycloak
-   ```
-
-3. **Or rebuild the image** (if you want to embed the image):
-   ```bash
-   docker-compose build keycloak
-   docker-compose up -d
-   ```
+2. **Shadow Intensity**: Adjust shadow values for different depth effects
+3. **Border Radius**: Modify border-radius values for different corner styles
 
 ### Supported Image Formats
 

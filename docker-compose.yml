@@ -10,6 +10,9 @@ services:
       - KEYCLOAK_ADMIN=admin
       - KEYCLOAK_ADMIN_PASSWORD=admin123
       - KC_DB=dev-file
+      - KC_SPI_THEME_STATIC_MAX_AGE=-1
+      - KC_SPI_THEME_CACHE_THEMES=false
+      - KC_SPI_THEME_CACHE_TEMPLATES=false
     volumes:
       # Mount custom images directory for easy image replacement
       - ./my-theme/login/resources/img:/opt/keycloak/themes/my-theme/login/resources/img

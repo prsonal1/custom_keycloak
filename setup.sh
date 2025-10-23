@@ -29,6 +29,9 @@ start_services() {
     docker-compose up -d
     echo "✅ Services started"
     echo ""
+    echo "🎨 Setting up default theme..."
+    ./set-default-theme.sh &
+    echo ""
     echo "🌐 Access Keycloak at: http://localhost:8080"
     echo "👤 Admin username: admin"
     echo "🔑 Admin password: admin123"

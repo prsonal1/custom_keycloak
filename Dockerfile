@@ -13,6 +13,11 @@ RUN mkdir -p /opt/keycloak/themes/my-theme/login/resources/img
 # Set proper permissions
 RUN chown -R keycloak:keycloak /opt/keycloak/themes/my-theme/
 
+# Set the custom theme as default for the master realm
+ENV KC_SPI_THEME_STATIC_MAX_AGE=-1
+ENV KC_SPI_THEME_CACHE_THEMES=false
+ENV KC_SPI_THEME_CACHE_TEMPLATES=false
+
 # Expose port
 EXPOSE 8080
 
