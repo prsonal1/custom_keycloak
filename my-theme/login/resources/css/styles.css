@@ -1,0 +1,261 @@
+/* Custom Keycloak Login Theme Styles */
+
+/* Reset and base styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Custom header with logo */
+.custom-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.custom-logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.custom-logo {
+    max-width: 200px;
+    max-height: 100px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Main login container */
+.custom-login-container {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.custom-login-form {
+    width: 100%;
+}
+
+/* Form groups and inputs */
+.custom-form-group {
+    margin-bottom: 1.5rem;
+}
+
+.custom-input-container {
+    margin-bottom: 1rem;
+}
+
+.custom-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #333;
+    font-size: 0.9rem;
+}
+
+.custom-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e1e5e9;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: #fff;
+}
+
+.custom-input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.custom-input[aria-invalid="true"] {
+    border-color: #e74c3c;
+}
+
+/* Error messages */
+.custom-error {
+    color: #e74c3c;
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+    display: block;
+}
+
+/* Form options */
+.custom-form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.custom-checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.custom-checkbox-label {
+    font-size: 0.9rem;
+    color: #666;
+    cursor: pointer;
+    margin: 0;
+}
+
+.custom-forgot-password a {
+    color: #667eea;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.custom-forgot-password a:hover {
+    text-decoration: underline;
+}
+
+/* Form actions */
+.custom-form-actions {
+    margin-top: 1.5rem;
+}
+
+.custom-button {
+    width: 100%;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.custom-button-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.custom-button-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+.custom-button-primary:active {
+    transform: translateY(0);
+}
+
+.custom-button-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Registration info */
+.custom-registration-info {
+    text-align: center;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e1e5e9;
+}
+
+.custom-registration-info p {
+    margin: 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.custom-registration-info a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.custom-registration-info a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+    .custom-login-container {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+    
+    .custom-form-options {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .custom-logo {
+        max-width: 150px;
+        max-height: 75px;
+    }
+}
+
+/* Loading state */
+.custom-button-primary:disabled {
+    position: relative;
+    color: transparent;
+}
+
+.custom-button-primary:disabled::after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    left: 50%;
+    margin-left: -8px;
+    margin-top: -8px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Accessibility improvements */
+.custom-input:focus,
+.custom-button:focus {
+    outline: 2px solid #667eea;
+    outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .custom-input {
+        border-color: #000;
+    }
+    
+    .custom-button-primary {
+        background: #000;
+        color: #fff;
+    }
+}

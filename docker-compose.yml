@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  keycloak:
+    build: .
+    container_name: keycloak-custom
+    ports:
+      - "8080:8080"
+    environment:
+      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN_PASSWORD=admin123
+      - KC_DB=dev-file
+    volumes:
+      # Mount custom images directory for easy image replacement
+      - ./my-theme/login/resources/img:/opt/keycloak/themes/my-theme/login/resources/img
+      # Optional: Mount entire theme directory for development
+      - ./my-theme:/opt/keycloak/themes/my-theme
+    networks:
+      - keycloak-network
+
+networks:
+  keycloak-network:
+    driver: bridge
